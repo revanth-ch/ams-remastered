@@ -19,7 +19,6 @@ Flask-Login==0.6.3
 Flask-SQLAlchemy==3.1.1
 frozenlist==1.4.1
 greenlet==3.1.1
-git add requirements.txt
 git commit -m 
 git push origin main
 h11==0.14.0
