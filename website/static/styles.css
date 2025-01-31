@@ -59,6 +59,8 @@ table {
     margin-top: 20px;
     background-color: #fff;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Allows horizontal scrolling */
+    display: block; /* Enables scrolling */
 }
 
 th, td {
@@ -67,8 +69,9 @@ th, td {
     text-align: center;
 }
 
+/* Table Headers */
 th {
-    background-color: #ab1c20; /* Deep blue */
+    background-color: #ab1c20; /* Deep red */
     color: white;
     font-weight: bold;
 }
@@ -76,7 +79,6 @@ th {
 tbody tr:nth-child(even) {
     background-color: #f2f2f2; /* Light gray for striping */
 }
-
 
 /* Header */
 h1 {
@@ -98,3 +100,36 @@ h1 {
     border-left: 5px solid #ab1c20; /* Adds a subtle left border */
 }
 
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    /* Adjust Table for Smaller Screens */
+    table {
+        width: 100%;
+        overflow-x: auto; /* Enables horizontal scroll on mobile */
+        -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+    }
+
+    th, td {
+        padding: 8px; /* Smaller padding for smaller screens */
+        font-size: 14px; /* Slightly smaller font for better readability */
+    }
+
+    .student-info {
+        padding: 10px; /* Adjust padding on mobile */
+    }
+
+    h1 {
+        font-size: 24px; /* Resize title for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Further Adjustments for Small Mobile Devices */
+    table {
+        font-size: 12px; /* Reduce font size further on small screens */
+    }
+
+    th, td {
+        padding: 6px; /* Reduce padding further */
+    }
+}
