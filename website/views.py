@@ -7,13 +7,14 @@ views = Blueprint('views', __name__)
 @views.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        username = request.form["username"]
+        username = request.form["username"].strip().upper()  # Convert to uppercase and remove extra spaces
         password = request.form["password"]
 
         attendance_data, student_name, hall_ticket = get_attendance(username, password)
         return render_template("index.html", attendance=attendance_data, name=student_name, hall_ticket=hall_ticket)
 
     return render_template("index.html")
+
 
 def get_attendance(username, password):
     login_url = 'https://ams.veltech.edu.in/'
