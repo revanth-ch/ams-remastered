@@ -19,6 +19,10 @@ Flask-Login==0.6.3
 Flask-SQLAlchemy==3.1.1
 frozenlist==1.4.1
 greenlet==3.1.1
+echo "gunicorn" >> requirements.txt
+git add requirements.txt
+git commit -m "Added gunicorn to requirements.txt"
+git push origin main
 h11==0.14.0
 httpcore==1.0.5
 httpx==0.27.2
