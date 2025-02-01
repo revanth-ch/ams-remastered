@@ -1,4 +1,4 @@
-/* General Styling */
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f9fa;
@@ -7,7 +7,7 @@ body {
     padding: 20px;
 }
 
-/* Form Container */
+
 .form-container {
     max-width: 400px;
     background: white;
@@ -17,7 +17,7 @@ body {
     margin: 0 auto;
 }
 
-/* Input Fields */
+
 input[type="text"], input[type="password"] {
     width: 100%;
     padding: 10px;
@@ -26,7 +26,7 @@ input[type="text"], input[type="password"] {
     border-radius: 5px;
 }
 
-/* Buttons */
+
 button, .btn {
     background-color: #ab1c20;
     color: white;
@@ -43,7 +43,7 @@ button:hover, .btn:hover {
     color: black;
 }
 
-/* Student Info */
+
 .student-info {
     background: #ab1c20;
     color: white;
@@ -52,7 +52,7 @@ button:hover, .btn:hover {
     text-align: center;
 }
 
-/* Table Styling */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -69,7 +69,7 @@ th, td {
     text-align: center;
 }
 
-/* Table Headers */
+
 th {
     background-color: #ab1c20; /* Deep red */
     color: white;
@@ -80,13 +80,13 @@ tbody tr:nth-child(even) {
     background-color: #f2f2f2; /* Light gray for striping */
 }
 
-/* Header */
+
 h1 {
     color: black;
     text-align: center;
 }
 
-/* Security Warning Box */
+
 .security-warning {
     max-width: 500px; /* Restricts width for better readability */
     background: #ffffff; /* Light yellow for warning effect */
@@ -100,7 +100,7 @@ h1 {
     border-left: 5px solid #ab1c20; /* Adds a subtle left border */
 }
 
-/* Responsive Styling */
+
 @media screen and (max-width: 768px) {
     /* Adjust Table for Smaller Screens */
     table {
