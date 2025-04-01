@@ -75,6 +75,9 @@ def get_attendance(username, password):
             total_sessions = int(cols[4].text.strip())
             attended_sessions = int(cols[6].text.strip())
             present_percentage = float(cols[8].text.strip().replace('%', ''))
+            Overall_percentage = float(cols[9].text.strip().replace('%', ''))
+
+
 
             required_percentage = 75
             required_sessions = (required_percentage / 100) * total_sessions
@@ -86,6 +89,7 @@ def get_attendance(username, password):
                 'total_sessions': total_sessions,
                 'attended_sessions': attended_sessions,
                 'present_percentage': present_percentage,
+                'Overall_percentage': Overall_percentage,
                 'remaining_sessions': remaining_sessions
             })
 
