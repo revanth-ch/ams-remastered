@@ -46,6 +46,7 @@
                     <th>Total Sessions</th>
                     <th>Attended Sessions</th>
                     <th>Attendance (%)</th>
+                    <th>Overall Attendance</th>
                     <th>Sessions Needed for 75%</th>
                 </tr>
             </thead>
@@ -57,6 +58,7 @@
                     <td>{{ entry.total_sessions }}</td>
                     <td>{{ entry.attended_sessions }}</td>
                     <td>{{ entry.present_percentage }}%</td>
+                    <td>{{entry.Overall_percentage}}</td>
                     <td>{{ entry.remaining_sessions }}</td>
                 </tr>
                 {% endfor %}
