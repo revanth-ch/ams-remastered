@@ -1,161 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMS Remastered</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='Untitled-removebg-preview.png') }}" type="image/x-icon">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MTXMKGPTX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4MTXMKGPTX');
+    </script>
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-    margin: 0;
-    padding: 20px;
-}
+    <!-- Font Awesome (for social icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+    <style>
+        .creator-contact {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 10000;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .creator-contact a {
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        .creator-contact a:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Creator contact fixed top-right -->
+    <div class="creator-contact">
+        Creator:
+        <a href="https://www.linkedin.com/in/ch-revanth/" target="_blank" style="color: #0A66C2;">
+            <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a href="https://www.instagram.com/revanthnow" target="_blank" style="color: #E1306C;">
+            <i class="fab fa-instagram fa-lg"></i>
+        </a>
+    </div>
 
-.form-container {
-    max-width: 400px;
-    background: white;
-    padding: 20px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin: 0 auto;
-}
+    <div class="container mt-5">
+        <h1 class="text-center">AMS Remastered</h1>
 
+        <!-- Login Form -->
+        <div class="form-container">
+            <form method="POST">
+                <div class="form-group">
+                    <label for="username">VTU NO:</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">AMS Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+        </div>
 
-input[type="text"], input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+        {% if name and hall_ticket %}
+        <!-- Student Info -->
+        <div class="student-info mt-4 p-3">
+            <h3>Welcome, {{ name }}</h3>
+            <p><strong>Hall Ticket Number:</strong> {{ hall_ticket }}</p>
+        </div>
+        {% endif %}
 
+        {% if attendance %}
+        <!-- Attendance Table -->
+        <table class="table mt-4">
+            <thead>
+                <tr>
+                    <th>Course Code</th>
+                    <th>Course Name</th>
+                    <th>Total Sessions</th>
+                    <th>Attended Sessions</th>
+                    <th>Attendance (%)</th>
+                    <th>Overall Attendance</th>
+                    <th>Sessions Needed for 75%</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in attendance %}
+                <tr>
+                    <td>{{ entry.course_code }}</td>
+                    <td>{{ entry.course_name }}</td>
+                    <td>{{ entry.total_sessions }}</td>
+                    <td>{{ entry.attended_sessions }}</td>
+                    <td>{{ entry.present_percentage }}%</td>
+                    <td>{{entry.Overall_percentage}}%</td>
+                    <td>{{ entry.remaining_sessions }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
 
-button, .btn {
-    background-color: #ab1c20;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-button:hover, .btn:hover {
-    background-color: #ffd698;
-    transform: translateY(-2px);
-    color: black;
-}
-
-
-.student-info {
-    background: #ab1c20;
-    color: white;
-    border-radius: 8px;
-    padding: 15px;
-    text-align: center;
-}
-
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #fff;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    overflow-x: auto; /* Allows horizontal scrolling */
-    display: block; /* Enables scrolling */
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-
-
-th {
-    background-color: #ab1c20; /* Deep red */
-    color: white;
-    font-weight: bold;
-}
-
-tbody tr:nth-child(even) {
-    background-color: #f2f2f2; /* Light gray for striping */
-}
-
-
-h1 {
-    color: black;
-    text-align: center;
-}
-
-
-.security-warning {
-    max-width: 500px; /* Restricts width for better readability */
-    background: #ffffff; /* Light yellow for warning effect */
-    color: #ab1c20; /* Deep red to match theme */
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: bold;
-    margin: 20px auto; /* Centers the div */
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid #ab1c20; /* Adds a subtle left border */
-}
-
-
-@media screen and (max-width: 768px) {
-    /* Adjust Table for Smaller Screens */
-    table {
-        width: 100%;
-        overflow-x: auto; /* Enables horizontal scroll on mobile */
-        -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
-    }
-
-    th, td {
-        padding: 8px; /* Smaller padding for smaller screens */
-        font-size: 14px; /* Slightly smaller font for better readability */
-    }
-
-    .student-info {
-        padding: 10px; /* Adjust padding on mobile */
-    }
-
-    h1 {
-        font-size: 24px; /* Resize title for smaller screens */
-    }
-}
-
-@media screen and (max-width: 480px) {
-    /* Further Adjustments for Small Mobile Devices */
-    table {
-        font-size: 12px; /* Reduce font size further on small screens */
-    }
-
-    th, td {
-        padding: 6px; /* Reduce padding further */
-    }
-}
-.creator-contact {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-    background: white;
-    padding: 8px 12px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.creator-contact a {
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-}
-.creator-contact a:hover {
-    opacity: 0.7;
-}
-
-.creator-contact a:hover {
-    opacity: 0.7;
-}
-
+    <div class="security-warning">
+        <h3>🔒 Your credentials are <strong>not stored</strong> and are only used to fetch your attendance.</h3>
+    </div> 
+</body>
+</html>
