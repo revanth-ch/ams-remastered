@@ -7,18 +7,55 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='Untitled-removebg-preview.png') }}" type="image/x-icon">
+    
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4MTXMKGPTX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MTXMKGPTX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4MTXMKGPTX');
+    </script>
 
-  gtag('config', 'G-4MTXMKGPTX');
-</script>
+    <!-- Font Awesome (for social icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+    <style>
+        .creator-contact {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 10000;
+            background: white;
+            padding: 8px 12px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .creator-contact a {
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        .creator-contact a:hover {
+            opacity: 0.7;
+        }
+    </style>
 </head>
 <body>
+    <!-- Creator contact fixed top-right -->
+    <div class="creator-contact">
+        Creator:
+        <a href="https://www.linkedin.com/in/ch-revanth/" target="_blank" style="color: #0A66C2;">
+            <i class="fab fa-linkedin fa-lg"></i>
+        </a>
+        <a href="https://www.instagram.com/revanthnow" target="_blank" style="color: #E1306C;">
+            <i class="fab fa-instagram fa-lg"></i>
+        </a>
+    </div>
+
     <div class="container mt-5">
         <h1 class="text-center">AMS Remastered</h1>
 
@@ -75,23 +112,9 @@
         </table>
         {% endif %}
     </div>
+
     <div class="security-warning">
-      <h3>🔒 Your credentials are <strong>not stored</strong> and are only used to fetch your attendance.</h3>
-  </div> 
-    <!-- Font Awesome (for icons) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- Creator Contact Section -->
-<div class="creator-contact">
-  Creator:
-  <a href="https://www.linkedin.com/in/ch-revanth/" target="_blank" style="color: #0A66C2;">
-    <i class="fab fa-linkedin fa-lg"></i>
-  </a>
-  <a href="https://www.instagram.com/revanthnow" target="_blank" style="color: #E1306C;">
-    <i class="fab fa-instagram fa-lg"></i>
-  </a>
-</div>
-
-  
+        <h3>🔒 Your credentials are <strong>not stored</strong> and are only used to fetch your attendance.</h3>
+    </div> 
 </body>
 </html>
