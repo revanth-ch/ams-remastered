@@ -152,6 +152,27 @@ h1 {
     text-decoration: none;
     transition: opacity 0.3s ease;
 }
+.creator-contact {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.creator-contact a {
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+.creator-contact a:hover {
+    opacity: 0.7;
+}
 
 .creator-contact a:hover {
     opacity: 0.7;
