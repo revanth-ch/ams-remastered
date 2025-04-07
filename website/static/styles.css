@@ -93,7 +93,7 @@ h1 {
 
 .creator-contact {
     position: fixed !important;
-    top: 20px !important;
+    bottom: 20px !important;
     right: 20px !important;
     z-index: 99999 !important;
     background: white;
@@ -105,7 +105,6 @@ h1 {
     align-items: center;
     gap: 10px;
 }
-
 
 .creator-contact a {
     text-decoration: none;
