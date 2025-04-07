@@ -93,20 +93,19 @@ h1 {
 
 .creator-contact {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
     background: white;
     padding: 8px 12px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #ddd;
     font-weight: 500;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 10px;
-    white-space: nowrap;
+    justify-content: flex-end;
+    z-index: 10000;
 }
-
 
 .creator-contact a {
     text-decoration: none;
@@ -153,4 +152,8 @@ h1 {
         padding: 6px 10px;
         gap: 8px;
     }
+}
+
+.container {
+    margin-top: 60px;
 }
