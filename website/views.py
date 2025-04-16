@@ -7,7 +7,7 @@ views = Blueprint('views', __name__)
 @views.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        username = request.form["username"].strip().upper()  # Convert to uppercase and remove extra spaces
+        username = request.form["username"].strip().upper() 
         password = request.form["password"]
 
         attendance_data, student_name, hall_ticket = get_attendance(username, password)
@@ -75,9 +75,12 @@ def get_attendance(username, password):
             total_sessions = int(cols[4].text.strip())
             attended_sessions = int(cols[6].text.strip())
             present_percentage = float(cols[8].text.strip().replace('%', ''))
-            Overall_percentage = float(cols[9].text.strip().replace('%', ''))
 
-
+           
+            try:
+                Overall_percentage = float(cols[9].text.strip().replace('%', ''))
+            except (IndexError, ValueError):
+                Overall_percentage = None  # or use 0.0 or "N/A" as per display need
 
             required_percentage = 75
             required_sessions = (required_percentage / 100) * total_sessions
