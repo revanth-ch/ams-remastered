@@ -1,132 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMS Remastered</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='Untitled-removebg-preview.png') }}" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMS Remastered</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='Untitled-removebg-preview.png') }}" type="image/x-icon">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MTXMKGPTX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-4MTXMKGPTX');
-    </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MTXMKGPTX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4MTXMKGPTX');
+  </script>
 
-    <!-- Font Awesome (for social icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <style>
-        .creator-contact {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: white;
-            padding: 8px 12px;
-            border-bottom: 1px solid #ddd;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            justify-content: flex-end;
-            z-index: 10000;
-        }
-        .creator-contact a {
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-        .creator-contact a:hover {
-            opacity: 0.7;
-        }
-        .container {
-            margin-top: 60px;
-        }
-    </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4671777701254736"
-     crossorigin="anonymous"></script>
+  <style>
+    .creator-contact {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: white;
+      padding: 8px 12px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      z-index: 10000;
+    }
+    .creator-contact a { transition: opacity 0.3s ease; }
+    .creator-contact a:hover { opacity: 0.7; }
+    .container { margin-top: 60px; }
+  </style>
 </head>
 <body>
-    <!-- Creator contact fixed top -->
-    <div class="creator-contact">
-        Creator:
-        <a href="https://www.linkedin.com/in/ch-revanth/" target="_blank" style="color: #0A66C2;">
-            <i class="fab fa-linkedin fa-lg"></i>
-        </a>
-        <a href="https://www.instagram.com/revanthnow" target="_blank" style="color: #E1306C;">
-            <i class="fab fa-instagram fa-lg"></i>
-        </a>
-    </div>
+  <!-- Creator contact fixed top -->
+  <div class="creator-contact">
+    Creator:
+    <a href="https://www.linkedin.com/in/ch-revanth/" target="_blank" style="color: #0A66C2;">
+      <i class="fab fa-linkedin fa-lg"></i>
+    </a>
+    <a href="https://www.instagram.com/revanthnow" target="_blank" style="color: #E1306C;">
+      <i class="fab fa-instagram fa-lg"></i>
+    </a>
+  </div>
 
-    <div class="container mt-5">
-        <h1 class="text-center">AMS Remastered</h1>
+  <div class="container">
+    <h1 class="text-center mt-5">AMS Remastered</h1>
 
-        <!-- Login Form -->
-        <div class="form-container">
-            <form method="POST">
-                <div class="form-group">
-                    <label for="username">VTU NO:</label>
-                    <input type="text" class="form-control" id="username" name="username" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">AMS Password:</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Login</button>
-            </form>
+    <!-- Login Form -->
+    <div class="form-container mt-4">
+      <form method="POST">
+        <div class="form-group">
+          <label for="username">VTU NO:</label>
+          <input type="text" class="form-control" id="username" name="username" required>
         </div>
-
-        {% if name and hall_ticket %}
-        <!-- Student Info -->
-        <div class="student-info mt-4 p-3">
-            <h3>Welcome, {{ name }}</h3>
-            <p><strong>Hall Ticket Number:</strong> {{ hall_ticket }}</p>
+        <div class="form-group">
+          <label for="password">AMS Password:</label>
+          <input type="password" class="form-control" id="password" name="password" required>
         </div>
-        {% endif %}
-
-        {% if attendance %}
-        <!-- Attendance Table -->
-        <table class="table mt-4">
-            <thead>
-                <tr>
-                    <th>Course Code</th>
-                    <th>Course Name</th>
-                    <th>Total Sessions</th>
-                    <th>Attended Sessions</th>
-                    <th>Attendance (%)</th>
-                    <th>Overall Attendance</th>
-                    <th>Sessions Needed for 75%</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for entry in attendance %}
-                <tr>
-                    <td>{{ entry.course_code }}</td>
-                    <td>{{ entry.course_name }}</td>
-                    <td>{{ entry.total_sessions }}</td>
-                    <td>{{ entry.attended_sessions }}</td>
-                    <td>{{ entry.present_percentage }}%</td>
-                    <td>
-                        {% if entry.Overall_percentage is not none %}
-                            {{ entry.Overall_percentage }}%
-                        {% else %}
-                            N/A
-                        {% endif %}
-                    </td>
-                    <td>{{ entry.remaining_sessions }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        {% endif %}
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
     </div>
 
-    <div class="security-warning">
-        <h3>Your credentials are <strong>not stored</strong> and are only used to fetch your attendance.</h3>
+    {% if name and hall_ticket %}
+      <!-- Student Info -->
+      <div class="student-info mt-4 p-3">
+        <h3>Welcome, {{ name }}</h3>
+        <p><strong>Hall Ticket Number:</strong> {{ hall_ticket }}</p>
+      </div>
+    {% endif %}
+
+    {% if today_classes %}
+      <!-- Today's Sessions -->
+      <h4 class="mt-4">Today's Sessions ({{ today_classes|length }})</h4>
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th>Course Code</th>
+            <th>Course Name</th>
+            <th>Slot</th>
+            <th>Time</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cls in today_classes %}
+          <tr>
+            <td>{{ cls.course_code }}</td>
+            <td>{{ cls.course_name }}</td>
+            <td>{{ cls.slot }}</td>
+            <td>{{ cls.timeslot }}</td>
+            <td>
+              {% if cls.status == 'P' %}
+                <span class="text-success">Present</span>
+              {% elif cls.status == 'A' %}
+                <span class="text-danger">Absent</span>
+              {% else %}
+                {{ cls.status }}
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p class="mt-4"><em>No sessions scheduled for today.</em></p>
+    {% endif %}
+
+    {% if attendance %}
+      <!-- Attendance Summary Table -->
+      <h4 class="mt-4">Attendance Summary</h4>
+      <table class="table mt-2">
+        <thead>
+          <tr>
+            <th>Course Code</th>
+            <th>Course Name</th>
+            <th>Total Sessions</th>
+            <th>Attended Sessions</th>
+            <th>Attendance (%)</th>
+            <th>Overall Attendance</th>
+            <th>Sessions Needed for 75%</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for entry in attendance %}
+          <tr>
+            <td>{{ entry.course_code }}</td>
+            <td>{{ entry.course_name }}</td>
+            <td>{{ entry.total_sessions }}</td>
+            <td>{{ entry.attended_sessions }}</td>
+            <td>{{ entry.present_percentage }}%</td>
+            <td>
+              {% if entry.Overall_percentage is not none %}
+                {{ entry.Overall_percentage }}%
+              {% else %}
+                N/A
+              {% endif %}
+            </td>
+            <td>{{ entry.remaining_sessions }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+
+    <div class="security-warning mt-4">
+      <h3>Your credentials are <strong>not stored</strong> and are only used to fetch your attendance.</h3>
     </div>
+  </div>
 </body>
 </html>
