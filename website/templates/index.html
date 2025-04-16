@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='Untitled-removebg-preview.png') }}" type="image/x-icon">
-    
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4MTXMKGPTX"></script>
     <script>
@@ -110,7 +110,13 @@
                     <td>{{ entry.total_sessions }}</td>
                     <td>{{ entry.attended_sessions }}</td>
                     <td>{{ entry.present_percentage }}%</td>
-                    <td>{{entry.Overall_percentage}}%</td>
+                    <td>
+                        {% if entry.Overall_percentage is not none %}
+                            {{ entry.Overall_percentage }}%
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </td>
                     <td>{{ entry.remaining_sessions }}</td>
                 </tr>
                 {% endfor %}
@@ -120,5 +126,7 @@
     </div>
 
     <div class="security-warning">
-            <h3>Your credentials are <strong>not stored</strong> and are only used to fetch your attendance.</h3>
-    </div> 
+        <h3>Your credentials are <strong>not stored</strong> and are only used to fetch your attendance.</h3>
+    </div>
+</body>
+</html>
